@@ -83,58 +83,7 @@ class MyModel(nn.Module):
         x=self.fc(x)
         return x
 
-# # define the CNN architecture
-# class MyModel(nn.Module):
-#     def __init__(self, num_classes: int = 1000, dropout: float = 0.7) -> None:
 
-#         super().__init__()
-
-#         # YOUR CODE HERE
-#         # Define a CNN architecture. Remember to use the variable num_classes
-#         # to size appropriately the output of your classifier, and if you use
-#         # the Dropout layer, use the variable "dropout" to indicate how much
-#         # to use (like nn.Dropout(p=dropout))
-        
-#         self.model = nn.Sequential(
-#             nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, padding=1),
-#             nn.BatchNorm2d(16),
-#             nn.ReLU(),
-#             nn.Dropout(p=dropout),
-#             nn.MaxPool2d(kernel_size=2, stride=2),
-#             nn.Conv2d(16, 32, kernel_size=3, padding=1),
-#             nn.BatchNorm2d(32),
-#             nn.ReLU(),
-#             nn.Dropout(p=dropout),
-#             nn.MaxPool2d(kernel_size=2, stride=2),
-#             nn.Conv2d(32, 64, 3, padding=1),
-#             nn.BatchNorm2d(64),
-#             nn.ReLU(),
-#             nn.Dropout(p=dropout),
-#             nn.MaxPool2d(2, 2),
-#             nn.Conv2d(64, 128, 3, padding=1),
-#             nn.BatchNorm2d(128),
-#             nn.ReLU(),
-#             nn.Dropout(p=dropout),
-#             nn.MaxPool2d(2, 2),
-#             nn.Conv2d(128, 256, kernel_size=3, padding=1),
-#             nn.BatchNorm2d(256),
-#             nn.ReLU(),
-#             nn.Dropout(p=dropout),
-#             nn.MaxPool2d(kernel_size=2, stride=2),
-#             nn.Flatten(),  # Flatten the tensor
-#             nn.Linear(256 * 7 * 7, 256),  # Adjust the input size as per your architecture
-#             nn.BatchNorm1d(256),
-#             nn.ReLU(),
-#             nn.Dropout(p=dropout),
-#             nn.Linear(256, num_classes)
-#         )
-
-#     def forward(self, x):
-#         # YOUR CODE HERE: process the input tensor through the
-#         # feature extractor, the pooling and the final linear
-#         # layers (if appropriate for the architecture chosen)
-
-#         return self.model(x)
 
 
 ######################################################################################
