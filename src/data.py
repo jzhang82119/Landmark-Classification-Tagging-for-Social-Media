@@ -43,7 +43,9 @@ def get_data_loaders(
     data_transforms = {
         "train": transforms.Compose([
             transforms.Resize(256),
-            transforms.RandomCrop(224, padding_mode="reflect", pad_if_needed=True),  
+            transforms.RandomCrop(224), 
+            transforms.RandomHorizontalFlip(),
+            transforms.RandomAffine(15),
             transforms.ToTensor(),
             transforms.Normalize(mean, std),
         ]),
