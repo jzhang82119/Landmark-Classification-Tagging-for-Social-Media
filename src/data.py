@@ -94,13 +94,13 @@ def get_data_loaders(
 
     # prepare data loaders
     data_loaders["train"] = torch.utils.data.DataLoader(
-        valid_data,
+        train_data,
         batch_size=batch_size,
         sampler=train_sampler,
         num_workers=num_workers
     )
     data_loaders["valid"] = torch.utils.data.DataLoader(
-        train_data,
+        valid_data,
         batch_size=batch_size,
         sampler=train_sampler,
         num_workers=num_workers,
