@@ -9,8 +9,19 @@ from .helpers import compute_mean_and_std, get_data_location
 import matplotlib.pyplot as plt
 
 
+import math
+import torch
+import torch.utils.data
+from pathlib import Path
+from torchvision import datasets, transforms
+import multiprocessing
+
+from .helpers import compute_mean_and_std, get_data_location
+import matplotlib.pyplot as plt
+
+
 def get_data_loaders(
-    batch_size: int = 32, valid_size: float = 0.2, num_workers: int = 1, limit: int = -1
+    batch_size: int = 32, valid_size: float = 0.2, num_workers: int = 6, limit: int = -1
 ):
     """
     Create and returns the train_one_epoch, validation and test data loaders.
@@ -102,9 +113,8 @@ def get_data_loaders(
     data_loaders["valid"] = torch.utils.data.DataLoader(
         valid_data,
         batch_size=batch_size,
-        sampler=train_sampler,
-        num_workers=num_workers,
-        shuffle=False
+        sampler=valid_sampler,
+        num_workers=0,
     )
 
     # Now create the test data loader
@@ -123,7 +133,7 @@ def get_data_loaders(
         test_data,
         batch_size=batch_size,
         sampler=test_sampler,
-        num_workers=num_workers,
+        num_workers=0,
         shuffle=False  
     )
 
